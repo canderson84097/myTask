@@ -10,6 +10,7 @@ import UIKit
 
 protocol ButtonTableViewCellDelegate: class {
     func buttonCellButtonTapped(for cell: ButtonTableViewCell)
+    
 }
 
 class ButtonTableViewCell: UITableViewCell {
@@ -26,18 +27,15 @@ class ButtonTableViewCell: UITableViewCell {
         delegate?.buttonCellButtonTapped(for: self)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func updateViews(with task: Task) {
-        primaryLabel.text = task.name
-        if !task.isComplete {
-            completeButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
-        } else {
-            completeButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
-        }
-    }
+         primaryLabel.text = task.name
+         if !task.isComplete {
+             completeButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
+         } else {
+             completeButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
+         }
+     }
 }
+
+ 
+

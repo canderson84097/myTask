@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,32 +23,43 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oba-fA-6KJ">
-                                            <rect key="frame" x="20" y="18" width="52.5" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-w1-dA5">
-                                            <rect key="frame" x="344" y="16" width="30" height="30"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Sef-sH-4ls">
+                                            <rect key="frame" x="20" y="11" width="374" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oba-fA-6KJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-w1-dA5">
+                                                    <rect key="frame" x="334" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eUv-w1-dA5" secondAttribute="height" multiplier="1:1" id="rgQ-aP-XHJ"/>
+                                                        <constraint firstAttribute="height" constant="40" id="u7c-iw-g4a"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <state key="normal" image="incomplete.png"/>
+                                                    <connections>
+                                                        <action selector="buttonTapped:" destination="cap-Qv-R8d" eventType="touchUpInside" id="dZt-aN-fP6"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="eUv-w1-dA5" secondAttribute="height" multiplier="1:1" id="KUZ-y8-Qzq"/>
+                                                <constraint firstItem="eUv-w1-dA5" firstAttribute="top" secondItem="Sef-sH-4ls" secondAttribute="topMargin" id="155-sh-6sH"/>
+                                                <constraint firstItem="eUv-w1-dA5" firstAttribute="bottom" secondItem="Sef-sH-4ls" secondAttribute="bottomMargin" id="IYm-UE-ywj"/>
+                                                <constraint firstItem="Oba-fA-6KJ" firstAttribute="leading" secondItem="Sef-sH-4ls" secondAttribute="leading" id="JuE-e7-6GI"/>
+                                                <constraint firstAttribute="bottom" secondItem="Oba-fA-6KJ" secondAttribute="bottom" id="bJz-Vk-wcQ"/>
+                                                <constraint firstItem="Oba-fA-6KJ" firstAttribute="top" secondItem="Sef-sH-4ls" secondAttribute="top" id="gIz-nI-dsH"/>
+                                                <constraint firstItem="eUv-w1-dA5" firstAttribute="trailing" secondItem="Sef-sH-4ls" secondAttribute="trailingMargin" id="rAM-6M-P4b"/>
                                             </constraints>
-                                            <state key="normal" title="Button" image="incomplete"/>
-                                            <connections>
-                                                <action selector="buttonTapped:" destination="cap-Qv-R8d" eventType="touchUpInside" id="dZt-aN-fP6"/>
-                                            </connections>
-                                        </button>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Oba-fA-6KJ" firstAttribute="leading" secondItem="Jc4-0p-uYn" secondAttribute="leadingMargin" id="1i8-af-0GA"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="eUv-w1-dA5" secondAttribute="bottom" constant="5" id="5sg-MJ-rj3"/>
-                                        <constraint firstItem="Oba-fA-6KJ" firstAttribute="centerY" secondItem="eUv-w1-dA5" secondAttribute="centerY" id="BPk-q8-XCL"/>
-                                        <constraint firstItem="Oba-fA-6KJ" firstAttribute="top" secondItem="Jc4-0p-uYn" secondAttribute="topMargin" constant="7" id="HGS-oD-3Z7"/>
-                                        <constraint firstItem="eUv-w1-dA5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Oba-fA-6KJ" secondAttribute="trailing" constant="8" symbolic="YES" id="O3f-bm-uni"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eUv-w1-dA5" secondAttribute="trailing" constant="20" id="iYm-vc-SPM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Oba-fA-6KJ" secondAttribute="bottom" constant="7" id="rPt-sC-d8P"/>
-                                        <constraint firstItem="eUv-w1-dA5" firstAttribute="top" secondItem="Jc4-0p-uYn" secondAttribute="topMargin" constant="5" id="x12-2Q-h4a"/>
+                                        <constraint firstItem="Sef-sH-4ls" firstAttribute="leading" secondItem="Jc4-0p-uYn" secondAttribute="leadingMargin" id="A1K-Gy-N9f"/>
+                                        <constraint firstItem="Sef-sH-4ls" firstAttribute="top" secondItem="Jc4-0p-uYn" secondAttribute="topMargin" id="QqC-cd-ctu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Sef-sH-4ls" secondAttribute="trailing" id="jdJ-NU-DOW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Sef-sH-4ls" secondAttribute="bottom" id="u8X-ns-kQO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -239,9 +251,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="incomplete" width="512" height="512"/>
+        <image name="incomplete.png" width="20.803611755371094" height="20.803611755371094"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x2d-az-u0w"/>
+        <segue reference="56f-hT-mdc"/>
     </inferredMetricsTieBreakers>
 </document>

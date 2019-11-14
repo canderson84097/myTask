@@ -13,12 +13,23 @@ class TaskController {
     
     static let sharedInstance = TaskController()
     
-    var tasks: [Task] {
-        let request: NSFetchRequest<Task> = Task.fetchRequest()
+    init() {
         do {
-            return (try? CoreDataStack.context.fetch(request)) ?? []
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("")
         }
     }
+    
+    let fetchedResultsController: NSFetchedResultsController<Task> = {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        
+        let isCompleteSortDescriptor = NSSortDescriptor(key: "isComplete", ascending: true)
+        let dueSortDescriptor = NSSortDescriptor(key: "due", ascending: true)
+        fetchRequest.sortDescriptors = [isCompleteSortDescriptor, dueSortDescriptor]
+        
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
+    }()
     
     func add(name: String, notes: String?, due: Date?) {
         _ = Task(name: name, isComplete: false)

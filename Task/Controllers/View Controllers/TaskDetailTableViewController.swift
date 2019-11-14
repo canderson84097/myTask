@@ -43,7 +43,7 @@ class TaskDetailTableViewController: UITableViewController {
     }
     
     @IBAction func detailCancelButton(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -64,10 +64,6 @@ class TaskDetailTableViewController: UITableViewController {
     }
     @IBAction func userTappedView(_ sender: Any?) {
         
-    }
-    
-    private func updateTask() {
-    
     }
     
     func updateViews(task: Task?) {
